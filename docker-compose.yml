@@ -1,0 +1,11 @@
+version: '1'
+services:
+  webmin:
+    container_name: webmin
+    image: "ghcr.io/home-assistant/home-assistant:stable"
+    volumes:
+      - /$HOME/Webmin:/config
+      - /etc/localtime:/etc/localtime:ro
+    restart: always
+    privileged: true
+    network_mode: host
