@@ -1,9 +1,8 @@
 FROM debian:buster-slim
 
-RUN /bin/bash
-    && apt-get update \
+RUN apt-get update \
     && apt-get upgrade -y \
-    && apt-get install -y curl wget apt-transport-https \
+    && apt-get install --no-install-recommends -y apt-utils nano procps ca-certificates wget apt-transport-https gnupg1 \
     && echo "deb https://download.webmin.com/download/repository sarge contrib" >> /etc/apt/sources.list \
     && cd /tmp \
     && wget https://download.webmin.com/jcameron-key.asc \
